@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+export class Hero {
+  id: number;
+  name: string;
+}
+
 @Component({
     selector: 'app-root',
   template: `
@@ -10,6 +15,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Tour of Heroes';
-  hero = 'windstorm';
-  test = 'test';
+  hero: Hero = {
+    id: 1,
+    name: 'windstorm'
+  }
 }

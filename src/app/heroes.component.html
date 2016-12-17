@@ -6,11 +6,24 @@
     [class.selected]="hero === this.selectedHero"
   >
     <span class="badge">{{hero.id}}</span> {{hero.name}}
+    <button class="delete" (click)="delete_hero(hero); $event.stopPropagation()">x</button>
   </li>
 </ul>
+<div>
+  <label>Hero Name:</label>
+  <input #heroInput
+         (keyup.enter)="add(heroInput.value); heroInput.value=''"
+  />
+  <button
+    (click)="add(heroInput.value); heroInput.value=''"
+  >
+    Add
+  </button>
+</div>
 <div *ngIf="selectedHero">
   <h2>
     {{selectedHero.name | uppercase}} is my Hero!
   </h2>
   <button (click)="gotoDetail()">View Details</button>
 </div>
+
